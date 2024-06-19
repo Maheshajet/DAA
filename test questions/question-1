@@ -14,3 +14,4 @@ def min_length_after_operations(nums):
 
 nums = [1, 2, 3, 4]
 print(min_length_after_operations(nums))  
+h
