@@ -1,0 +1,18 @@
+def sort_by_moving_items(nums):
+    n = len(nums)
+    pos = {num: i for i, num in enumerate(nums)}
+    count = 0
+
+    for i in range(n):
+        while nums[i] != i:
+            zero_pos = pos[0]
+            correct_pos = pos[i]
+            nums[zero_pos], nums[correct_pos] = nums[correct_pos], nums[zero_pos]
+            pos[0], pos[i] = pos[i], pos[0]
+            count += 1
+
+    return count
+
+print(sort_by_moving_items([4,2,0,3,1]))  
+print(sort_by_moving_items([1,2,3,4,0]))  
+print(sort_by_moving_items([1,0,2,4,3]))  
