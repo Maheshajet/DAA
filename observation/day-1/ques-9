@@ -1,0 +1,17 @@
+def next_greater_element_iv(nums):
+    n = len(nums)
+    result = [-1] * n
+    stack = []
+
+    for _ in range(2):
+        for i in range(n):
+            while stack and nums[stack[-1]] < nums[i]:
+                idx = stack.pop()
+                if result[idx] == -1:
+                    result[idx] = nums[i]
+            stack.append(i)
+    
+    return result
+
+print(next_greater_element_iv([2,4,0,9,6]))  
+print(next_greater_element_iv([3,3]))  
