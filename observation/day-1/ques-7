@@ -1,0 +1,15 @@
+def within_two_edits(queries, dictionary):
+    def can_convert_within_two_edits(word1, word2):
+        diff_count = sum(1 for a, b in zip(word1, word2) if a != b)
+        return diff_count <= 2
+    
+    result = []
+    for query in queries:
+        for word in dictionary:
+            if can_convert_within_two_edits(query, word):
+                result.append(query)
+                break
+    return result
+
+print(within_two_edits(["word","note","ants","wood"], ["wood","joke","moat"]))  
+print(within_two_edits(["yes"], ["not"])) 
