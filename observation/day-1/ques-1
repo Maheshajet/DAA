@@ -1,0 +1,18 @@
+def odd_string_difference(words):
+    def get_difference_array(word):
+        return [ord(word[i + 1]) - ord(word[i]) for i in range(len(word) - 1)]
+    
+    difference_arrays = [tuple(get_difference_array(word)) for word in words]
+    diff_count = {}
+    
+    for i, diff in enumerate(difference_arrays):
+        diff_count[diff] = diff_count.get(diff, []) + [i]
+    
+    for indices in diff_count.values():
+        if len(indices) == 1:
+            return words[indices[0]]
+
+words1 = ["adc", "wzy", "abc"]
+words2 = ["aaa", "bob", "ccc", "ddd"]
+print(odd_string_difference(words1))  
+print(odd_string_difference(words2))  
