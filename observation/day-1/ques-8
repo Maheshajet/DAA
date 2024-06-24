@@ -1,0 +1,13 @@
+def destroy_sequential_targets(nums, space):
+    from collections import defaultdict
+    
+    modulo_groups = defaultdict(list)
+    for num in nums:
+        modulo_groups[num % space].append(num)
+    
+    max_group = max(modulo_groups.values(), key=len)
+    return min(max_group)
+
+print(destroy_sequential_targets([3,7,8,1,1,5], 2))  
+print(destroy_sequential_targets([1,3,5,2,4,6], 2))  
+print(destroy_sequential_targets([6,2,5], 100))  
