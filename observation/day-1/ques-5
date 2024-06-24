@@ -1,0 +1,24 @@
+def sort_array_by_moving_items(nums):
+    n = len(nums)
+    target_sorted = list(range(n))
+    def swap(nums, i, j):
+        nums[i], nums[j] = nums[j], nums[i]
+    operations = 0
+    zero_index = nums.index(0)
+    while nums != target_sorted:
+        if zero_index != n - 1:
+            target_index = zero_index + 1 if nums[zero_index + 1] != target_sorted[zero_index] else zero_index + 1
+        else:
+            target_index = zero_index - 1        if nums[zero_index] != target_sorted[zero_index]:
+            swap(nums, zero_index, target_index)
+            zero_index = target_index
+            operations += 1
+        else:
+            zero_index = target_index
+    return operations
+nums1 = [4, 2, 0, 3, 1]
+nums2 = [1, 2, 3, 4, 0]
+nums3 = [1, 0, 2, 4, 3]
+print(sort_array_by_moving_items(nums1))  
+print(sort_array_by_moving_items(nums2))  
+print(sort_array_by_moving_items(nums3))
