@@ -1,0 +1,16 @@
+def min_addition_to_make_beautiful(n, target):
+    def digit_sum(x):
+        return sum(int(d) for d in str(x))
+    
+    addition = 0
+    while digit_sum(n + addition) > target:
+        addition += 1
+    
+    return addition
+
+n1, target1 = 16, 6
+n2, target2 = 467, 6
+n3, target3 = 1, 1
+print(min_addition_to_make_beautiful(n1, target1)) 
+print(min_addition_to_make_beautiful(n2, target2)) 
+print(min_addition_to_make_beautiful(n3, target3))  
