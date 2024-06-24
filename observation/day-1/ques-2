@@ -1,0 +1,16 @@
+def words_within_two_edits(queries, dictionary):
+    def is_within_two_edits(word1, word2):
+        count = sum(1 for a, b in zip(word1, word2) if a != b)
+        return count <= 2
+    result = []
+    for query in queries:
+        if any(is_within_two_edits(query, dic) for dic in dictionary):
+            result.append(query)
+    return result
+
+queries1 = ["word", "note", "ants", "wood"]
+dictionary1 = ["wood", "joke", "moat"]
+queries2 = ["yes"]
+dictionary2 = ["not"]
+print(words_within_two_edits(queries1, dictionary1))  
+print(words_within_two_edits(queries2, dictionary2))  
