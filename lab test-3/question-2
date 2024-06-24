@@ -1,0 +1,39 @@
+import heapq
+
+def dijkstra(graph, source):
+    n = len(graph)
+    distances = [float('inf')] * n
+    distances[source] = 0
+    priority_queue = [(0, source)]
+    processed = set()
+
+    while priority_queue:
+        current_distance, current_vertex = heapq.heappop(priority_queue)
+        
+        if current_vertex in processed:
+            continue
+        
+        processed.add(current_vertex)
+        
+        for neighbor in range(n):
+            if graph[current_vertex][neighbor] != float('inf'):
+                distance = graph[current_vertex][neighbor]
+                new_distance = current_distance + distance
+                if new_distance < distances[neighbor]:
+                    distances[neighbor] = new_distance
+                    heapq.heappush(priority_queue, (new_distance, neighbor))
+    
+    return distances
+
+# Test case
+n = 5
+graph = [
+    [0, 10, 3, float('inf'), float('inf')],
+    [float('inf'), 0, 1, 2, float('inf')],
+    [float('inf'), 4, 0, 8, 2],
+    [float('inf'), float('inf'), float('inf'), 0, 7],
+    [float('inf'), float('inf'), float('inf'), 9, 0]
+]
+source = 0
+
+print(dijkstra(graph, source))  # Output should be [0, 7, 3, 9, 5]
