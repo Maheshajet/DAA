@@ -1,0 +1,13 @@
+def sort_odd_even(nums):
+    nums.sort()
+    odd = [x for x in nums if x % 2 != 0]
+    even = [x for x in nums if x % 2 == 0]
+    result = []
+    for i in range(len(nums) // 2):
+        result.append(even[i])
+        result.append(odd[i])
+    return result
+
+
+nums = [4, 2, 5, 7]
+print(sort_odd_even(nums))  
