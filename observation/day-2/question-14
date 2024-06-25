@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int sum_non_recursive(int n) {
+    int sum = 0;
+    for (int i = 1; i <= n; i++) {
+        sum += i;
+    }
+    return sum;
+}
+
+int main() {
+    int n = 10;
+    printf("Sum (Non-recursive): %d\n", sum_non_recursive(n));
+    return 0;
+}
