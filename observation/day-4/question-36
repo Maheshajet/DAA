@@ -1,0 +1,10 @@
+def copyString(src, dest, index=0):
+    if index == len(src):
+        return dest
+    else:
+        dest += src[index]
+        return copyString(src, dest, index + 1)
+
+src = "Hello"
+dest = ""
+print("Copied String:", copyString(src, dest))
