@@ -1,0 +1,19 @@
+def sort_array_by_moving_items(nums):
+    n = len(nums)
+    operations = 0
+    zero_index = nums.index(0)
+    
+    while nums != list(range(n)):
+        target_index = nums[zero_index] if nums[zero_index] != zero_index else zero_index
+        nums[zero_index], nums[target_index] = nums[target_index], nums[zero_index]
+        zero_index = target_index
+        operations += 1
+    
+    return operations
+
+nums1 = [4, 2, 0, 3, 1]
+nums2 = [1, 2, 3, 4, 0]
+nums3 = [1, 0, 2, 4, 3]
+print(sort_array_by_moving_items(nums1))  
+print(sort_array_by_moving_items(nums2))  
+print(sort_array_by_moving_items(nums3))  
