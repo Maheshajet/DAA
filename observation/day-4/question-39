@@ -1,0 +1,14 @@
+def isPrime(n, i=2):
+    if n <= 2:
+        return n == 2
+    if n % i == 0:
+        return False
+    if i * i > n:
+        return True
+    return isPrime(n, i + 1)
+
+num = 17
+if isPrime(num):
+    print(num, "is a prime number")
+else:
+    print(num, "is not a prime number")
