@@ -1,0 +1,15 @@
+def isPrime(n):
+    if n <= 1:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+def generatePrimes(start, end):
+    print(*[num for num in range(start, end + 1) if isPrime(num)])
+
+start = 10
+end = 50
+print("Prime numbers between", start, "and", end, "are:")
+generatePrimes(start, end)
