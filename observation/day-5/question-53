@@ -1,0 +1,28 @@
+def arraysIntersection(arr1, arr2, arr3):
+    i, j, k = 0, 0, 0
+    result = []
+    while i < len(arr1) and j < len(arr2) and k < len(arr3):
+        if arr1[i] == arr2[j] == arr3[k]:
+            result.append(arr1[i])
+            i += 1
+            j += 1
+            k += 1
+        else:
+            minimum = min(arr1[i], arr2[j], arr3[k])
+            if arr1[i] == minimum:
+                i += 1
+            if arr2[j] == minimum:
+                j += 1
+            if arr3[k] == minimum:
+                k += 1
+    return result
+
+arr1 = [1,2,3,4,5]
+arr2 = [1,2,5,7,9]
+arr3 = [1,3,4,5,8]
+print(arraysIntersection(arr1, arr2, arr3))  
+
+arr4 = [197,418,523,876,1356]
+arr5 = [501,880,1593,1710,1870]
+arr6 = [521,682,1337,1395,1764]
+print(arraysIntersection(arr4, arr5, arr6))  
