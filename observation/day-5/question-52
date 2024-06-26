@@ -1,0 +1,13 @@
+def maxChunksToSorted(arr):
+    count = 0
+    max_seen = 0
+    for i, num in enumerate(arr):
+        max_seen = max(max_seen, num)
+        if max_seen == i:
+            count += 1
+    return count
+
+arr1 = [4,3,2,1,0]
+arr2 = [1,0,2,3,4]
+print(maxChunksToSorted(arr1))  
+print(maxChunksToSorted(arr2))  
